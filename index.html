@@ -86,6 +86,25 @@
             35% { transform: scale(1.06); box-shadow: 0 0 0 4px rgba(193,122,95,0.35); }
             100% { transform: scale(1); }
         }
+
+        .area-card.outline {
+            background: white;
+            color: #3f4a37;
+            border: 2px solid #c17a5f;
+        }
+
+        .dia-semana {
+            background: white;
+            color: #3f4a37;
+            border: 2px solid #8a9a7b;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .dia-semana .tema {
+            opacity: 0.85;
+        }
         
         .simulador {
             background: white;
@@ -242,14 +261,6 @@
             gap: 15px;
         }
         
-        .dia-semana {
-            background: linear-gradient(135deg, #8a9a7b 0%, #c17a5f 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
         .dia-semana .dia {
             font-weight: bold;
             margin-bottom: 10px;
@@ -384,16 +395,26 @@
                     </label>
                 </div>
 
-                <div class="checkbox-item">
-                    <input type="checkbox" id="tiktok" value="300" onchange="atualizarPreco()">
-                    <label for="tiktok">TikTok Profissional</label>
-                    <span class="preco">+R$ 300/mês</span>
+                <div class="checkbox-item" style="align-items: flex-start;">
+                    <input type="checkbox" id="tiktok" onchange="atualizarPreco()" style="margin-top: 4px;">
+                    <label for="tiktok" style="display: block;">
+                        TikTok Profissional
+                        <div style="display: flex; align-items: center; gap: 10px; margin-top: 8px;">
+                            <input type="range" id="tiktok-valor" value="300" min="0" max="800" step="50" disabled oninput="atualizarPreco()" style="flex-grow: 1;">
+                            <span class="preco" id="tiktok-valor-label" style="min-width: 90px; text-align: right;">R$ 300/mês</span>
+                        </div>
+                    </label>
                 </div>
 
-                <div class="checkbox-item">
-                    <input type="checkbox" id="reels-extra" value="250" onchange="atualizarPreco()">
-                    <label for="reels-extra">Reels Adicionais</label>
-                    <span class="preco">+R$ 250/mês</span>
+                <div class="checkbox-item" style="align-items: flex-start;">
+                    <input type="checkbox" id="reels-extra" onchange="atualizarPreco()" style="margin-top: 4px;">
+                    <label for="reels-extra" style="display: block;">
+                        Reels Adicionais
+                        <div style="display: flex; align-items: center; gap: 10px; margin-top: 8px;">
+                            <input type="range" id="reels-extra-valor" value="250" min="0" max="600" step="50" disabled oninput="atualizarPreco()" style="flex-grow: 1;">
+                            <span class="preco" id="reels-extra-valor-label" style="min-width: 90px; text-align: right;">R$ 250/mês</span>
+                        </div>
+                    </label>
                 </div>
 
                 <p style="color: #666; font-size: 11px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #ddd;">
@@ -450,23 +471,23 @@
                 Estimativas mensais de referência para o plano selecionado, com base em médias do setor de estética:
             </p>
             <div class="areas-grid">
-                <div class="area-card">
+                <div class="area-card outline">
                     <div class="titulo">LEADS</div>
                     <div class="servicos" id="resLeads">40-70/mês</div>
                 </div>
-                <div class="area-card">
+                <div class="area-card outline">
                     <div class="titulo">AGENDAMENTOS</div>
                     <div class="servicos" id="resAgendamentos">15-25/mês</div>
                 </div>
-                <div class="area-card">
+                <div class="area-card outline">
                     <div class="titulo">VISUALIZAÇÕES</div>
                     <div class="servicos" id="resVisualizacoes">8-15 mil/mês</div>
                 </div>
-                <div class="area-card">
+                <div class="area-card outline">
                     <div class="titulo">SEGUIDORES</div>
                     <div class="servicos" id="resSeguidores">+100-200/mês</div>
                 </div>
-                <div class="area-card">
+                <div class="area-card outline">
                     <div class="titulo">RECEITA INFLUENCIADA</div>
                     <div class="servicos" id="resReceita">R$ 3.000-6.000/mês</div>
                 </div>
@@ -611,14 +632,24 @@
                 descricaoExtras += ` • Anúncios (verba + gestão): +R$ ${valorAnuncios.toLocaleString('pt-BR')}`;
             }
 
-            if (document.getElementById('tiktok').checked) {
-                valorExtras += 300;
-                descricaoExtras += ' • TikTok: +R$ 300';
+            const tiktokInput = document.getElementById('tiktok-valor');
+            const tiktokChecked = document.getElementById('tiktok').checked;
+            tiktokInput.disabled = !tiktokChecked;
+            const valorTiktok = parseInt(tiktokInput.value, 10) || 0;
+            document.getElementById('tiktok-valor-label').textContent = 'R$ ' + valorTiktok.toLocaleString('pt-BR') + '/mês';
+            if (tiktokChecked) {
+                valorExtras += valorTiktok;
+                descricaoExtras += ` • TikTok: +R$ ${valorTiktok.toLocaleString('pt-BR')}`;
             }
 
-            if (document.getElementById('reels-extra').checked) {
-                valorExtras += 250;
-                descricaoExtras += ' • Reels: +R$ 250';
+            const reelsInput = document.getElementById('reels-extra-valor');
+            const reelsChecked = document.getElementById('reels-extra').checked;
+            reelsInput.disabled = !reelsChecked;
+            const valorReels = parseInt(reelsInput.value, 10) || 0;
+            document.getElementById('reels-extra-valor-label').textContent = 'R$ ' + valorReels.toLocaleString('pt-BR') + '/mês';
+            if (reelsChecked) {
+                valorExtras += valorReels;
+                descricaoExtras += ` • Reels: +R$ ${valorReels.toLocaleString('pt-BR')}`;
             }
 
             if (brandingParcelado) {
