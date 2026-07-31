@@ -430,6 +430,9 @@
 
             <div class="checkbox-group">
                 <h4>Expansão (Opcional)</h4>
+                <p style="color: #555; font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+                    São serviços extras pra acelerar o crescimento além do que já está no plano base. Cada um liga/desliga independente e o valor é ajustável no controle deslizante.
+                </p>
 
                 <div class="checkbox-item" style="align-items: flex-start;">
                     <input type="checkbox" id="anuncios" onchange="atualizarPreco()" style="margin-top: 4px;">
@@ -465,13 +468,36 @@
                     </label>
                 </div>
 
-                <p style="color: #555; font-size: 13px; line-height: 1.5; margin-top: 12px; padding-top: 12px; border-top: 1px solid #ddd;">
-                    O valor da agência acima cobre a gestão/criação das campanhas. A verba paga diretamente à plataforma (Meta/TikTok) e eventuais ferramentas de terceiros (ex: agendamento online, CRM) não estão inclusas nos planos — só entram no seu investimento se você selecionar e ajustar o item acima.
-                </p>
+                <details style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ddd;">
+                    <summary style="cursor: pointer; color: #c17a5f; font-size: 13px; font-weight: 500;">O que está incluso em cada item?</summary>
+                    <ul style="color: #555; font-size: 13px; line-height: 1.8; margin: 10px 0 0 20px; padding: 0;">
+                        <li><strong>Anúncios Pagos (Meta Ads):</strong> gestão e criação das campanhas pela agência. A verba paga direto à plataforma é o valor ajustado no controle deslizante.</li>
+                        <li><strong>TikTok Profissional:</strong> produção e gestão de conteúdo específico para o TikTok.</li>
+                        <li><strong>Reels Adicionais:</strong> produção de Reels extras, além dos já inclusos no plano base.</li>
+                    </ul>
+                </details>
+                <details style="margin-top: 12px;">
+                    <summary style="cursor: pointer; color: #c17a5f; font-size: 13px; font-weight: 500;">Verba de campanha e ferramentas de terceiros</summary>
+                    <p style="color: #555; font-size: 13px; line-height: 1.5; margin: 10px 0 0 0;">
+                        O valor da agência cobre a gestão/criação das campanhas. A verba paga diretamente à plataforma (Meta/TikTok) e eventuais ferramentas de terceiros (ex: agendamento online, CRM) não estão inclusas nos planos — só entram no seu investimento se você selecionar e ajustar o item acima.
+                    </p>
+                </details>
             </div>
 
             <div class="checkbox-group">
                 <h4>Treinamento (Opcional — valor à parte)</h4>
+                <p style="color: #555; font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+                    Capacitação rápida da equipe de atendimento para converter mais leads em agendamentos.
+                </p>
+                <details style="margin-bottom: 12px;">
+                    <summary style="cursor: pointer; color: #c17a5f; font-size: 13px; font-weight: 500;">O que é e o que está incluso?</summary>
+                    <ul style="color: #555; font-size: 13px; line-height: 1.8; margin: 10px 0 0 20px; padding: 0;">
+                        <li>Roteiro de atendimento (WhatsApp e presencial)</li>
+                        <li>Como responder dúvidas e objeções comuns</li>
+                        <li>Como conduzir o cliente até o agendamento</li>
+                        <li>Sessão prática com a equipe</li>
+                    </ul>
+                </details>
 
                 <div class="checkbox-item">
                     <input type="checkbox" id="treinamento" value="350" onchange="atualizarPreco()">
