@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta 5 Áreas - Agrupadas</title>
+    <title>Proposta - Clínica de Estética</title>
     <style>
         * {
             margin: 0;
@@ -277,9 +277,9 @@
     <div class="container">
         <!-- HEADER -->
         <div class="header">
-            <h1>🎯 5 Áreas de Atuação</h1>
+            <h1>🎯 Clínica de Estética</h1>
             <p>
-                Agrupadas por profissional/especialidade<br>
+                5 Áreas de Atuação agrupadas por profissional/especialidade<br>
                 Feed gerenciado pela agência • Stories com templates • Branding como ecossistema
             </p>
         </div>
@@ -344,40 +344,56 @@
             </div>
             
             <div class="checkbox-group">
-                <h4>✨ Branding Setup (Opcional)</h4>
-                
+                <h4>✨ Branding Setup (Opcional) — R$ 1.500</h4>
+
                 <div class="checkbox-item">
-                    <input type="checkbox" id="branding-parcelado" value="833" onchange="atualizarPreco()">
-                    <label for="branding-parcelado">Branding Setup (parcelado 3x)</label>
-                    <span class="preco">+R$ 833/mês</span>
+                    <input type="checkbox" id="branding-parcelado" value="500" onchange="atualizarPreco()">
+                    <label for="branding-parcelado">Branding Setup (parcelado 3x sem juros)</label>
+                    <span class="preco">+R$ 500/mês (3x)</span>
                 </div>
-                
+
                 <div class="checkbox-item">
-                    <input type="checkbox" id="branding-vista" value="1800" onchange="atualizarPreco()">
+                    <input type="checkbox" id="branding-vista" value="1500" onchange="atualizarPreco()">
                     <label for="branding-vista">Branding Setup (à vista)</label>
-                    <span class="preco">+R$ 1.800 (primeira vez)</span>
+                    <span class="preco">+R$ 1.500 (primeira vez)</span>
                 </div>
             </div>
-            
+
             <div class="checkbox-group">
                 <h4>📱 Expansão (Opcional)</h4>
-                
+                <p style="color: #666; font-size: 11px; margin-bottom: 12px;">
+                    💡 Verba de anúncios é flexível e pode ser ajustada conforme objetivo. O valor abaixo é uma recomendação de ponto de partida nesse ramo.
+                </p>
+
                 <div class="checkbox-item">
-                    <input type="checkbox" id="anuncios" value="500" onchange="atualizarPreco()">
-                    <label for="anuncios">Anúncios Pagos (Meta Ads)</label>
-                    <span class="preco">+R$ 500/mês</span>
+                    <input type="checkbox" id="anuncios" onchange="atualizarPreco()">
+                    <label for="anuncios">
+                        Anúncios Pagos (Meta Ads)<br>
+                        <span style="font-size: 11px; opacity: 0.7; font-weight: normal;">Recomendado nesse ramo como ponto de partida: R$ 150 (ex: unhas)</span>
+                    </label>
+                    <input type="number" id="anuncios-valor" value="150" min="100" step="50" disabled onchange="atualizarPreco()" oninput="atualizarPreco()" style="width: 80px; padding: 6px; border-radius: 6px; border: 1px solid #ccc; text-align: right;">
                 </div>
-                
+
                 <div class="checkbox-item">
                     <input type="checkbox" id="tiktok" value="300" onchange="atualizarPreco()">
                     <label for="tiktok">TikTok Profissional</label>
                     <span class="preco">+R$ 300/mês</span>
                 </div>
-                
+
                 <div class="checkbox-item">
                     <input type="checkbox" id="reels-extra" value="250" onchange="atualizarPreco()">
                     <label for="reels-extra">Reels Adicionais</label>
                     <span class="preco">+R$ 250/mês</span>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <h4>🗣️ Treinamento (Opcional — valor à parte)</h4>
+
+                <div class="checkbox-item">
+                    <input type="checkbox" id="treinamento" value="350" onchange="atualizarPreco()">
+                    <label for="treinamento">Treinamento de Comunicação (como falar com o cliente/atendimento)</label>
+                    <span class="preco">R$ 350 (pagamento único)</span>
                 </div>
             </div>
             
@@ -412,7 +428,45 @@
                 </div>
             </div>
         </div>
-        
+
+        <!-- O QUE O CLIENTE GANHA -->
+        <div class="simulador">
+            <h2>📈 O que Você Pode Esperar</h2>
+            <p style="color: #666; font-size: 12px; margin-bottom: 20px;">
+                Estimativas mensais de referência para o plano selecionado, com base em médias do setor de estética:
+            </p>
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="emoji">🎯</div>
+                    <div class="titulo">LEADS</div>
+                    <div class="servicos" id="resLeads">40-70/mês</div>
+                </div>
+                <div class="area-card">
+                    <div class="emoji">📅</div>
+                    <div class="titulo">AGENDAMENTOS</div>
+                    <div class="servicos" id="resAgendamentos">15-25/mês</div>
+                </div>
+                <div class="area-card">
+                    <div class="emoji">👀</div>
+                    <div class="titulo">VISUALIZAÇÕES</div>
+                    <div class="servicos" id="resVisualizacoes">8-15 mil/mês</div>
+                </div>
+                <div class="area-card">
+                    <div class="emoji">➕</div>
+                    <div class="titulo">SEGUIDORES</div>
+                    <div class="servicos" id="resSeguidores">+100-200/mês</div>
+                </div>
+                <div class="area-card">
+                    <div class="emoji">💵</div>
+                    <div class="titulo">RECEITA INFLUENCIADA</div>
+                    <div class="servicos" id="resReceita">R$ 3.000-6.000/mês</div>
+                </div>
+            </div>
+            <p style="color: #999; font-size: 10px; margin-top: 15px;">
+                ⚠️ Estimativas de referência, não são garantia de resultado. Variam conforme região, ticket médio, sazonalidade, engajamento da equipe e verba de anúncios investida.
+            </p>
+        </div>
+
         <!-- CRONOGRAMA DE STORIES -->
         <div class="cronograma">
             <h3>📱 Cronograma Sugerido de Stories (3-4/dia)</h3>
@@ -446,66 +500,169 @@
                 </div>
             </div>
         </div>
-        
+
+        <!-- EXEMPLO CRONOGRAMA QUINZENAL -->
+        <div class="cronograma">
+            <h3>📆 Exemplo de Cronograma Quinzenal (15 dias)</h3>
+            <p style="color: #666; font-size: 12px; margin-bottom: 20px;">
+                Um exemplo real de como o tema semanal se desdobra ao longo de 2 semanas, incluindo formatos interativos como a caixinha de perguntas:
+            </p>
+            <div class="cronograma-grid">
+                <div class="dia-semana">
+                    <div class="dia">1️⃣ Semana 1 - Seg</div>
+                    <div class="tema">Promoção Mãos + Dica rápida</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">1️⃣ Semana 1 - Ter</div>
+                    <div class="tema">Transformação Olhos + Enquete</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">1️⃣ Semana 1 - Qua</div>
+                    <div class="tema">Estética Corporal + Depoimento</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">1️⃣ Semana 1 - Qui</div>
+                    <div class="tema">🙋 Caixinha de Perguntas: tire dúvidas ao vivo</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">1️⃣ Semana 1 - Sex</div>
+                    <div class="tema">Podologia/Injetáveis + Agendamento</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">1️⃣ Semana 1 - Sab</div>
+                    <div class="tema">Cliente Destaque + Gratidão</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">2️⃣ Semana 2 - Seg</div>
+                    <div class="tema">Combo/Promoção da quinzena</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">2️⃣ Semana 2 - Ter</div>
+                    <div class="tema">Bastidores da clínica</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">2️⃣ Semana 2 - Qua</div>
+                    <div class="tema">Antes/Depois + Curiosidade</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">2️⃣ Semana 2 - Qui</div>
+                    <div class="tema">🙋 Caixinha de Perguntas: "manda sua dúvida"</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">2️⃣ Semana 2 - Sex</div>
+                    <div class="tema">Resultado de cliente + Agendamento</div>
+                </div>
+                <div class="dia-semana">
+                    <div class="dia">2️⃣ Semana 2 - Sab</div>
+                    <div class="tema">Enquete: qual área quer ver na próxima quinzena?</div>
+                </div>
+            </div>
+            <p style="color: #666; font-size: 11px; margin-top: 20px;">
+                💡 A caixinha de perguntas é enviada 1x por quinzena para gerar interação e captar dúvidas reais dos seguidores, que viram conteúdo (FAQ) nos posts seguintes.
+            </p>
+        </div>
+
         <!-- FOOTER -->
         <div class="footer">
             <p><strong>Documentação Completa:</strong> "Proposta_5Areas_Agrupadas.docx"</p>
-            <p>Proposta Flexível | 5 Áreas Agrupadas | 2026</p>
+            <p>Proposta Flexível | Clínica de Estética | 2026</p>
         </div>
     </div>
     
     <script>
+        const resultadosPorPlano = {
+            basico: {
+                leads: '40-70/mês',
+                agendamentos: '15-25/mês',
+                visualizacoes: '8-15 mil/mês',
+                seguidores: '+100-200/mês',
+                receitaMin: 3000,
+                receitaMax: 6000
+            },
+            completo: {
+                leads: '70-120/mês',
+                agendamentos: '25-40/mês',
+                visualizacoes: '15-30 mil/mês',
+                seguidores: '+200-400/mês',
+                receitaMin: 6000,
+                receitaMax: 12000
+            }
+        };
+
         function atualizarPreco() {
             const planoSelecionado = document.querySelector('input[name="plano"]:checked').value;
             let valorPlano = planoSelecionado === 'basico' ? 1000 : 1600;
             let nomeValorPlano = `Plano ${planoSelecionado === 'basico' ? 'Básico' : 'Completo'}`;
-            
+
             let valorExtras = 0;
             let descricaoExtras = '';
-            
+
             const brandingParcelado = document.getElementById('branding-parcelado').checked;
             const brandingVista = document.getElementById('branding-vista').checked;
-            
+
             if (brandingParcelado && brandingVista) {
                 document.getElementById('branding-vista').checked = false;
             }
-            
-            if (document.getElementById('anuncios').checked) {
-                valorExtras += 500;
-                descricaoExtras += ' • Anúncios: +R$ 500';
+
+            const anunciosInput = document.getElementById('anuncios-valor');
+            const anunciosChecked = document.getElementById('anuncios').checked;
+            anunciosInput.disabled = !anunciosChecked;
+            if (anunciosChecked) {
+                const valorAnuncios = parseInt(anunciosInput.value, 10) || 0;
+                valorExtras += valorAnuncios;
+                descricaoExtras += ` • Anúncios: +R$ ${valorAnuncios.toLocaleString('pt-BR')}`;
             }
-            
+
             if (document.getElementById('tiktok').checked) {
                 valorExtras += 300;
                 descricaoExtras += ' • TikTok: +R$ 300';
             }
-            
+
             if (document.getElementById('reels-extra').checked) {
                 valorExtras += 250;
                 descricaoExtras += ' • Reels: +R$ 250';
             }
-            
+
             if (brandingParcelado) {
-                valorExtras += 833;
-                descricaoExtras += ' • Branding: +R$ 833';
+                valorExtras += 500;
+                descricaoExtras += ' • Branding (3x sem juros): +R$ 500';
             }
-            
+
             let brandingVistaPrimeiro = 0;
             if (brandingVista) {
-                brandingVistaPrimeiro = 1800;
-                descricaoExtras += ' • Branding (1x): +R$ 1.800';
+                brandingVistaPrimeiro = 1500;
+                descricaoExtras += ' • Branding (1x): +R$ 1.500';
             }
-            
+
+            let treinamentoValor = 0;
+            if (document.getElementById('treinamento').checked) {
+                treinamentoValor = 350;
+                descricaoExtras += ' • Treinamento (1x): +R$ 350';
+            }
+
             const totalMensal = valorPlano + valorExtras;
-            const totalMes1 = totalMensal + brandingVistaPrimeiro;
-            const totalTrimestre = (totalMensal * 3) + brandingVistaPrimeiro;
-            
+            const totalMes1 = totalMensal + brandingVistaPrimeiro + treinamentoValor;
+            const totalTrimestre = (totalMensal * 3) + brandingVistaPrimeiro + treinamentoValor;
+
             document.getElementById('resumoPlano').textContent = nomeValorPlano + ': R$ ' + valorPlano.toLocaleString('pt-BR');
             document.getElementById('resumoAdicional').textContent = descricaoExtras || 'Nenhum';
             document.getElementById('totalMes').textContent = 'R$ ' + totalMensal.toLocaleString('pt-BR');
             document.getElementById('totalTrimestre').textContent = 'R$ ' + totalTrimestre.toLocaleString('pt-BR');
+
+            const res = resultadosPorPlano[planoSelecionado];
+            document.getElementById('resLeads').textContent = res.leads;
+            document.getElementById('resAgendamentos').textContent = res.agendamentos;
+            document.getElementById('resVisualizacoes').textContent = res.visualizacoes;
+            document.getElementById('resSeguidores').textContent = res.seguidores;
+            let receitaMin = res.receitaMin;
+            let receitaMax = res.receitaMax;
+            if (anunciosChecked) {
+                receitaMin = Math.round(receitaMin * 1.3);
+                receitaMax = Math.round(receitaMax * 1.3);
+            }
+            document.getElementById('resReceita').textContent = 'R$ ' + receitaMin.toLocaleString('pt-BR') + '-' + receitaMax.toLocaleString('pt-BR') + '/mês';
         }
-        
+
         atualizarPreco();
     </script>
 </body>
