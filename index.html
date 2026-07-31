@@ -343,7 +343,7 @@
                     <div class="opcao">
                         <label>
                             <input type="radio" name="plano" value="completo" onchange="atualizarPreco()">
-                            Plano Completo (R$ 1.600/mês)
+                            Plano Completo (R$ 2.000/mês)
                         </label>
                     </div>
                 </div>
@@ -641,7 +641,7 @@
 
         function atualizarPreco() {
             const planoSelecionado = document.querySelector('input[name="plano"]:checked').value;
-            let valorPlano = planoSelecionado === 'basico' ? 1000 : 1600;
+            let valorPlano = planoSelecionado === 'basico' ? 1000 : 2000;
             let nomeValorPlano = `Plano ${planoSelecionado === 'basico' ? 'Básico' : 'Completo'}`;
 
             let valorExtras = 0;
